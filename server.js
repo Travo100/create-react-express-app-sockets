@@ -7,6 +7,9 @@ const logger = require("morgan");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
 // grabbing our test model
 const Test = require("./models/test");
 
@@ -31,6 +34,18 @@ mongoose.connect(
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+io.on('connection', (socket) => { 
+  socket.on('join', (id) => {
+    socket.join(id);
+  });
+
+  socket.on('message', (data)=>{
+    console.log(data);
+  });
+});
+
+
 
 // just a dummy GET route on our Test model
 app.get("/data", (req,res) => {

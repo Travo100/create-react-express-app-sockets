@@ -9,7 +9,7 @@
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"    
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
     "mongoose": "^4.12.3",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "socket.io": "^2.0.4"
   }
 }

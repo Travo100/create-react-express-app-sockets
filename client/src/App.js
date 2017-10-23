@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:3001');
+
 
 class App extends Component {
+  componentDidMount() {
+    socket.on('join', (io)=>{
+      io.emit('message', 'hello!');
+    })
+  }
+    
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
