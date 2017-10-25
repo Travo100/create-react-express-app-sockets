@@ -1,4 +1,5 @@
 import openSocket from 'socket.io-client';
+const SOCKETS_URL = 'http://localhost:3001';
 const socket = openSocket(SOCKETS_URL);
 
 const sockets = {

@@ -37,7 +37,6 @@ if (process.env.NODE_ENV === "production") {
 
 io.on('connection', (client) => {
   client.on('message', (message) => {
-    console.log(message);
     client.emit('message', message);
   });
 });
