@@ -1,5 +1,5 @@
 import openSocket from 'socket.io-client';
-const SOCKETS_URL = 'http://localhost:3001';
+const SOCKETS_URL = 'https://create-react-express-sockets.herokuapp.com/';
 const socket = openSocket(SOCKETS_URL);
 
 const sockets = {
