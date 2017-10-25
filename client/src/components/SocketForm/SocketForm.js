@@ -10,7 +10,9 @@ class SocketForm extends Component {
   
   constructor(props) {
     super(props);
-    sockets.listenForMessage((sentMessage) => this.setState({sentMessage}));
+    sockets.listenForMessage((data) => {
+      this.setState({sentMessage: data})
+    });
   }
 
   handleInputChange = event => {
@@ -41,7 +43,7 @@ class SocketForm extends Component {
             />
           </div>
           <button type="submit" className="btn btn-default" onClick={this.submitForm}>Submit</button>
-          <p><span>Sent Message:</span> {this.state.sentMessage}</p>
+          <p>Received Message: {this.state.sentMessage}</p>
         </form>
         
       );
