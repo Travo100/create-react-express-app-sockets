@@ -3,7 +3,6 @@ import { sockets } from '../../utils/sockets';
 
 class SocketForm extends Component {
   state = {
-    timestamp: 'no timestamp yet',
     message: '',
     sentMessage: ''
   };
