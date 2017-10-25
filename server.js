@@ -35,13 +35,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-io.on('connection', (socket) => { 
-  socket.on('join', (id) => {
-    socket.join(id);
-  });
-
-  socket.on('message', (data)=>{
-    console.log(data);
+io.on('connection', (client) => {
+  client.on('message', (message) => {
+    console.log(message);
+    client.emit('message', message);
   });
 });
 
@@ -70,10 +67,10 @@ app.get("*", (req, res) => {
   if ( process.env.NODE_ENV === "production" ) {
     res.sendFile(__dirname + "./client/build/index.html");
   } else {
-    res.sendFile(__dirname + "./client/public/index.html");
+    res.sendFile(__dirname + "/client/public/index.html");
   }
 });
 
-app.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });

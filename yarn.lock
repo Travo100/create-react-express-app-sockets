@@ -1793,6 +1793,10 @@ socket.io-parser@~3.1.1:
     has-binary2 "~1.0.2"
     isarray "2.0.1"
 
+socket.io-react@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/socket.io-react/-/socket.io-react-1.2.0.tgz#377468613d7079321404f187d6cc9bc246cafae7"
+
 socket.io@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/socket.io/-/socket.io-2.0.4.tgz#c1a4590ceff87ecf13c72652f046f716b29e6014"
