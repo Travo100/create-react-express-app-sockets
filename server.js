@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
 
 io.on('connection', (client) => {
   client.on('message', (message) => {
-    client.emit('message', message);
+    client.emit('message', {for: 'everyone'}, message);
   });
 });
 
