@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SocketForm from './components/SocketForm';
+import SocketForm from './components/SocketForm/index';
 
 class App extends Component {
 
