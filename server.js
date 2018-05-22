@@ -34,14 +34,15 @@ mongoose.connect(
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
+// this is our connection to socket
 io.on('connection', (client) => {
+
+  // we are listening to an event here called 'message'
   client.on('message', (message) => {
+    // and emitting the message event for any client listening to it
     io.emit('message', message);
   });
 });
-
-
 
 // just a dummy GET route on our Test model
 app.get("/data", (req,res) => {
