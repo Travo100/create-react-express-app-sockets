@@ -41,3 +41,6 @@ yarn build
 3. Push to Heroku
 
 If all previous steps were followed correctly, your application should be deployed to Heroku!
+
+### REST vs WebSockets
+https://www.pubnub.com/blog/2015-01-05-websockets-vs-rest-api-understanding-the-difference/
