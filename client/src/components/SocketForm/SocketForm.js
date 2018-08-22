@@ -4,13 +4,13 @@ import { sockets } from '../../utils/sockets';
 class SocketForm extends Component {
   state = {
     message: '',
-    sentMessage: ''
+    receivedMessage: ''
   };
   
   constructor(props) {
     super(props);
     sockets.listenForMessage((data) => {
-      this.setState({sentMessage: data})
+      this.setState({receivedMessage: data});
     });
   }
 
@@ -42,7 +42,7 @@ class SocketForm extends Component {
             />
           </div>
           <button type="submit" className="btn btn-default" onClick={this.submitForm}>Submit</button>
-          <p>Received Message: {this.state.sentMessage}</p>
+          <p>Received Message: {this.state.receivedMessage}</p>
         </form>
         
       );
