@@ -20,28 +20,22 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Set up promises with mongoose
-mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/myDatabase",
-  {
-    useMongoClient: true
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/myDatabase", { useNewUrlParser: true });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
+// this is our connection to socket
 io.on('connection', (client) => {
+
+  // we are listening to an event here called 'message'
   client.on('message', (message) => {
+    // and emitting the message event for any client listening to it
     io.emit('message', message);
   });
 });
-
-
 
 // just a dummy GET route on our Test model
 app.get("/data", (req,res) => {
