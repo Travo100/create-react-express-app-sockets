@@ -1,6 +1,6 @@
 import openSocket from 'socket.io-client';
-const socketUrl = process.env.REACT_APP_SOCKET_URL || 'http://localhost:3001/';
-const socket = openSocket(socketUrl);
+// const socketUrl = process.env.REACT_APP_SOCKET_URL || 'http://localhost:3001/';
+const socket = openSocket();
 
 const sockets = {
     listenForMessage: (callback) => {
