@@ -4,27 +4,28 @@
   "description": "Mern Demo",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js",
-    "client": "node scripts/start-client.js",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
-    "build": "node scripts/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && yarn install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "dotenv": "^6.0.0",
-    "express": "^4.15.4",
-    "mongoose": "^5.2.9",
-    "morgan": "^1.9.0",
-    "socket.io": "^2.0.4",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.4.8",
+    "morgan": "^1.9.1",
+    "socket.io": "^2.2.0",
     "socket.io-react": "^1.2.0"
   }
 }

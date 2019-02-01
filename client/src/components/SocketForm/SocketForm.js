@@ -12,8 +12,7 @@ class SocketForm extends Component {
   constructor(props) {
     super(props);
     sockets.listenForMessage(data => {
-      let messages = [...this.state.messages, data];
-      this.setState({messages: messages})
+      this.setState({messages: [...this.state.messages, data]})
     });
   }
 
