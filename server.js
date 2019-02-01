@@ -7,8 +7,8 @@ const logger = require("morgan");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 // grabbing our test model
 const Test = require("./models/test");
@@ -64,6 +64,6 @@ app.get("*", (req, res) => {
   }
 });
 
-http.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
