@@ -2401,11 +2401,6 @@ socket.io-parser@~3.3.0:
     debug "~3.1.0"
     isarray "2.0.1"
 
-socket.io-react@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/socket.io-react/-/socket.io-react-1.2.0.tgz#377468613d7079321404f187d6cc9bc246cafae7"
-  integrity sha512-7QJE2m+w6FHuatIQeFoo0sz0lZbGJkWQnfz5lAAJEGYoWGyWrSN1/sHrwhEMFypuvlZrkoICR5pPoh3+smdlRQ==
-
 socket.io@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/socket.io/-/socket.io-2.2.0.tgz#f0f633161ef6712c972b307598ecd08c9b1b4d5b"
